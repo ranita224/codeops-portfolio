@@ -1,7 +1,0 @@
-Natan,800
-Abebch,500 
-Raniya ,10000 
-Hayni ,500 
-Abebch,-100 
-Hiwot,300
-Natan,500
