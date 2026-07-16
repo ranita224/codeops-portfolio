@@ -39,7 +39,7 @@ except ZeroDivisionError:
     print("the number you inserted is not divisble")
 else: 
     print (f"the result is {value}")
- #
+ 
 try:
     with open("day02.customer_report.py" , "r") as f: 
         for line in f: 
