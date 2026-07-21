@@ -7,7 +7,6 @@ class BuildReport:
 
     def format_text(self):
         return f"Report Title: {self.title} ,\n Content:{self.content}"  
-
 class ReportSaver:
     def __init__(self,report_text,filename):
         self.report_text = report_text
@@ -21,10 +20,6 @@ class EmailSender:
         print(f"Sending email to {recipient}...")
         print(f"Subject: {subject}\nBody:\n{body}")
 
-
-# --- HOW TO USE THEM TOGETHER ---
-
-# Step 1: Create the report content
 my_report = BuildReport("Sales Report","We made $1,000 today!")
 formatted_content = my_report.format_text()
 print(formatted_content)
@@ -63,10 +58,77 @@ print(circle.calculate_area())
 print(square.calculate_area())
 #3.Write a Singleton. Build an AppSettings Singleton holding a currency ("ETB") and confirm two instances are the same object.
 class AppSettings:
-    _instance = None
+    _instance = None   
 
     def __new__(cls):
-        if cls._instance is None:
+        if cls._instance is None:  
             cls._instance = super().__new__(cls)
-            cls._instance.currency = "ETB"  # Ethiopian Birr
-        return cls._instance 
+            cls._instance.currency = "ETB"  
+        return cls._instance
+if __name__ == "__main__":
+    a = AppSettings()
+    b = AppSettings()
+
+    print("Currency:", a.currency)       
+    print("Singleton check:", a is b)    
+#4. Write a Factory. Create a ShapeFactory.create(kind) that returns a Circle, Square, or 
+#Triangle. 
+class Shape:
+    def area(self):
+        raise NotImplementedError("Subclasses must implement area")
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius * self.radius
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+    def area(self):
+        return self.side * self.side
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+class ShapeFactory:
+    @staticmethod
+    def create(kind, *args):
+        if kind == "circle":
+            return Circle(*args)
+        elif kind == "square":
+            return Square(*args)
+        elif kind == "triangle":
+            return Triangle(*args)
+        else:
+            raise ValueError("Unknown shape type")
+if __name__ == "__main__":
+    shape1 = ShapeFactory.create("circle", 3)     
+    shape2 = ShapeFactory.create("square", 4)     
+    shape3 = ShapeFactory.create("triangle", 5, 2) 
+
+    print("Circle area:", shape1.area())   
+    print("Square area:", shape2.area())   
+    print("Triangle area:", shape3.area()) 
+#5. Write an Observer pair. Make a NewsAgency subject and two subscriber classes that print when notified. 
+class NewsAgency:
+    def __init__(self):
+        self._subscribers = []
+    def subscribe(self, subscriber):
+        self._subscribers.append(subscriber)
+    def notify(self, news):
+        for s in self._subscribers:
+            s.update(news)
+class EmailSubscriber:
+    def update(self, news):
+        print(f"Email: {news}")
+class SMSSubscriber:
+    def update(self, news):
+        print(f"SMS: {news}")
+if __name__ == "__main__":
+    agency = NewsAgency()
+    agency.subscribe(EmailSubscriber())
+    agency.subscribe(SMSSubscriber())
+    agency.notify("Breaking news: Observer pattern implemented!")
