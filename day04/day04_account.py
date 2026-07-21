@@ -23,4 +23,3 @@ class Account:
 almaz= Account("almaz",1000623685761,1000)
 almaz.statement()
 print(almaz.balance)
-
