@@ -24,8 +24,8 @@ def binary_search(items, target):
             hi = mid - 1
     return -1
 balances = [100, 200, 300, 400, 500, 600]
-print("Binary search (400):", binary_search(balances, 400))  # 3
-print("Binary search (250):", binary_search(balances, 250))  # -1
+print("Binary search (400):", binary_search(balances, 400)) 
+print("Binary search (250):", binary_search(balances, 250))  
 #3. Merge sort. Implement merge_sort(items) and its merge helper. Confirm it matches sorted() 
 #on random lists.
 def merge_sort(items):
@@ -50,7 +50,7 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 nums = [5, 2, 9, 1, 7]
-print("Merge sort:", merge_sort(nums))  # [1, 2, 5, 7, 9]
+print("Merge sort:", merge_sort(nums)) 
 #4. Sort with a key. Given a list of (name, balance) tuples, sort it by balance descending using sorted(key=...). 
 def sort_by_balance(data):
     return sorted(data, key=lambda x: x[1], reverse=True)
