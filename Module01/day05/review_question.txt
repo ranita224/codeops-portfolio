@@ -1,0 +1,15 @@
+#Q1.What does a child class inherit from its parent?
+answer:- A child class inherits all the attributes and methods defined in its parent class, including __init__ logic, instance variables, and any methods like deposit() or describe(). It can use these as-is, override them with its own version, or add new attributes and methods on top, without rewriting the parent's code.
+#Q2.What does super().init() do, and why call it?
+answer:- super().__init__() calls the parent class's constructor from within the child class's constructor. It's used so the child class can reuse the parent's setup logic (like assigning make, model, or owner, balance) instead of duplicating that code. 
+#Q3.What is method overriding, and which version runs?
+answer:-Method overriding happens when a child class defines a method with the same name as one in its parent class. When that method is called on an instance of the child class, Python runs the child's version instead of the parent's,the child's method takes priority. If the child wants to still use the parent's logic, it can call super().method_name() inside its own override.
+#Q4.Define polymorphism in your own words, with an example.
+answer:- Polymorphism means different classes can respond to the same method call in their own way. For example, calling .describe() on a list containing a Car, a Truck, and a Motorcycle runs a different version of describe() for each one, even though the calling code (obj.describe()) looks identical. Python decides at runtime which class's method to actually run, based on the object's real type.
+#Q5.What does @abstractmethod enforce on subclasses?
+answer:-@abstractmethod (from the abc module) forces every subclass to provide its own implementation of that method. If a subclass doesn't override it, Python raises a TypeError the moment you try to create an instance of that subclass. It also prevents the abstract base class itself from being instantiated directly, since it exists only as a template for subclasses to build on.
+#Q6.How do you decide between inheritance and composition?
+answer:-
+Use inheritance when one class clearly is a type of another (e.g., a Truck is a Vehicle, a SavingsAccount is an Account).
+Use composition when one class has a relationship with another (e.g., a Car has an Engine).
+Inheritance ties classes together more tightly, while composition is more flexible and lets you swap or change parts independently.
