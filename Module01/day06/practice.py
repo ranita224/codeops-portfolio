@@ -65,12 +65,12 @@ class AppSettings:
             cls._instance = super().__new__(cls)
             cls._instance.currency = "ETB"  
         return cls._instance
-if __name__ == "__main__":
-    a = AppSettings()
-    b = AppSettings()
+#if __name__ == "__main__":
+a = AppSettings()
+b = AppSettings()
 
-    print("Currency:", a.currency)       
-    print("Singleton check:", a is b)    
+print("Currency:", a.currency)       
+print("Singleton check:", a is b)    
 #4. Write a Factory. Create a ShapeFactory.create(kind) that returns a Circle, Square, or 
 #Triangle. 
 class Shape:
@@ -127,8 +127,8 @@ class EmailSubscriber:
 class SMSSubscriber:
     def update(self, news):
         print(f"SMS: {news}")
-if __name__ == "__main__":
-    agency = NewsAgency()
-    agency.subscribe(EmailSubscriber())
-    agency.subscribe(SMSSubscriber())
-    agency.notify("Breaking news: Observer pattern implemented!")
+#if __name__ == "__main__":
+agency = NewsAgency()
+agency.subscribe(EmailSubscriber())
+agency.subscribe(SMSSubscriber())
+agency.notify("Breaking news: Observer pattern implemented!")
