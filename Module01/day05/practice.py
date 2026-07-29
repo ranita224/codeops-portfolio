@@ -60,7 +60,6 @@ class Truck(Vehicle):
     def __init__(self, make, model, capacity):
         super().__init__(make, model) 
         self.capacity = capacity
-     
     def describe (self):
         print(f"Truck {self.make} {self.model} with capacity {self.capacity} tons")
 Vehicles = [Vehicle("bycycle","hownem",) ,Car("Toyota", "Corolla", 10), Truck("Volvo", "FH16",23)]
@@ -83,7 +82,6 @@ class Motorcycle(Vehicle):
         return 2
 Vehicles = [ Car() , Truck() , Motorcycle()]
 for v in Vehicles:
-     print(f"{v.__class__.__name__} has {v.wheels()} wheels.") 
+    print(f"{v.__class__.__name__} has {v.wheels()} wheels.") 
 
-         
 
