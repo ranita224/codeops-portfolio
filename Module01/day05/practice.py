@@ -82,6 +82,7 @@ class Motorcycle(Vehicle):
         return 2
 Vehicles = [ Car() , Truck() , Motorcycle()]
 for v in Vehicles:
+    
     print(f"{v.__class__.__name__} has {v.wheels()} wheels.") 
 
 
