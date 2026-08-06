@@ -1,0 +1,72 @@
+/* Global setup */
+:root {
+    --brand: #1B4D8E;
+    --gold: #D4A027;
+    --space: 16px;
+    --font-stack: "Inter", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Menu card styling */
+.menu-card {
+    background: white;
+    border: 2px solid var(--brand);
+    border-top: 8px solid var(--gold);
+    border-radius: 8px;
+    padding: var(--space);
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+.menu-title {
+    color: var(--brand);
+    margin-bottom: 8px;
+}
+
+.menu-description {
+    color: #333;
+    margin-bottom: var(--space);
+}
+
+/* Ingredient list */
+.ingredients {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: var(--space);
+}
+
+.ingredients li:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Price styling */
+.price {
+    color: var(--gold);
+    font-weight: bold;
+    text-align: right;
+    position: relative;
+}
+
+/* Prefix price with ETB */
+.price::before {
+    content: "ETB ";
+}
+
+/* Hover effect: lighten gold accent */
+.menu-card:hover {
+    border-top-color: hsl(45, 70%, 60%);
+}

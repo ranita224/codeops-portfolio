@@ -1,0 +1,79 @@
+/* Root palette and spacing scale */
+:root {
+    --brand: #1B4D8E;
+    --gold: #D4A027;
+    --space: 16px;
+    --font-stack: "Inter", sans-serif;
+}
+
+/* Global reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card layout */
+.business-card {
+    background: white;
+    border: 2px solid var(--brand);
+    border-top: 8px solid var(--gold);
+    border-radius: 8px;
+    padding: var(--space);
+    width: 340px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* Decorative pseudo-element accent */
+.business-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 8px;
+    background: var(--brand);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Typography hierarchy */
+.business-name {
+    color: var(--brand);
+    margin-bottom: 8px;
+}
+
+.tagline {
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: var(--space);
+}
+
+.description {
+    color: #333;
+    margin-bottom: var(--space);
+}
+
+/* Contact button */
+.contact-btn {
+  background: var(--brand);
+  color: var(--gold);
+  padding: var(--space);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Hover state — lighten only lightness (HSL) */
+.contact-btn:hover {
+    background: hsl(212, 68%, 45%);
+}
