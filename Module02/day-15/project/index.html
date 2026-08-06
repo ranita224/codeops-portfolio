@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habesha Eatery</title>
+  <style>
+    :root {
+      --primary: #8B0000;
+      --accent: #FFD700;
+      --bg: #f7f9fc;
+      --text: #333;
+      --spacing: 1rem;
+    }
+     *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      background: url('images/hero.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    .hero h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero a {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero a:hover {
+      background: white;
+    }
+    .about {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .about h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .card h4 {
+      margin: 0.5rem 0;
+      color: var(--primary);
+    }
+    .price {
+      color: #008000;
+      font-weight: bold;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    @media (min-width: 768px) {
+      .menu { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .menu { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .reservation {
+      background: var(--accent);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .reservation h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 400px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #a00000;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    footer p {
+      margin: 0.25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Habesha Eatery</h1>
+    <nav>
+      <a href="/about">About</a>
+      <a href="/menu">Menu</a>
+      <a href="/reservation">Reserve</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h2>Authentic Taste of Ethiopia</h2>
+    <p>Experience Addis Ababa’s finest traditional dishes.</p>
+    <a href="/reservation">Book a Table</a>
+  </section>
+
+  <section id="about" class="about">
+    <h3>Our Story</h3>
+    <p>Founded in the heart of Bole, Habesha Eatery celebrates Ethiopia’s rich culinary heritage with fresh ingredients and warm hospitality.</p>
+  </section>
+
+  <section id="menu" class="menu">
+    <div class="card">
+      <img src="doro.png" alt="Doro Wat"width="50" height="450">
+      <h4>Doro Wat</h4>
+      <p>Spicy chicken stew served with injera.</p>
+      <span class="price">4135ETB</span>
+    </div>
+    <div class="card">
+      <img src="kitfo.webp" alt="Kitfo"width="50" height="450">
+      <h4>Kitfo</h4>
+      <p>Minced beef seasoned with mitmita and butter.</p>
+      <span class="price">5150ETB</span>
+    </div>
+    <div class="card">
+      <img src="shero.webp" alt="Shiro" width="50" height="450">
+      <h4>Shiro</h4>
+      <p>Chickpea stew simmered with spices.</p>
+      <span class="price">975ETB</span>
+    </div>
+  </section>
+
+  <section id="reservation" class="reservation">
+    <h3>Reserve Your Table</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone" required>
+      <textarea placeholder="Special Requests"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <footer id="contact">
+    <p>📍 Bole Addis Ababa | 📞 +251 911 234 567 | 🕒 Open 9 AM – 10 PM</p>
+    <p>© 2026 Habesha Eatery | All Rights Reserved</p>
+  </footer>
+</body>
+</html>

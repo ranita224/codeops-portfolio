@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Menu</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      background: #f7f9fc;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      padding: 1rem;
+      color: #003366;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .card h2 {
+      margin: 0.5rem 0;
+      color: #003366;
+    }
+    .card p {
+      color: #555;
+    }
+    .price {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #008000;
+      font-size: 1.1rem;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card {
+        transition: none;
+      }
+      .card:hover {
+        transform: none;
+      }
+    }
+    @media (min-width: 768px) {
+      .menu {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 1024px) {
+      .menu {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    .footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Menu</h1>
+  <section class="menu">
+    <div class="card">
+      <img src="Spaghetti-Carbonara.jpg" alt="Dish 1"width="50" height="450">
+      <h2>Spaghetti Carbonara</h2>
+      <p>Creamy pasta with pancetta and parmesan.</p>
+      <span class="price">7412ETB</span>
+    </div>
+    <div class="card">
+      <img src="grilled-chicken-breast.jpg" alt="Dish 2"width="50" height="450">
+      <h2>Grilled Chicken</h2>
+      <p>Juicy chicken breast served with herbs and veggies.</p>
+      <span class="price">4450 ETB</span>
+    </div>
+    <div class="card">
+      <img src="salad.webp" alt="Dish 3"width="50" height="450">
+      <h2>Caesar Salad</h2>
+      <p>Fresh romaine lettuce with Caesar dressing and croutons.</p>
+      <span class="price">3975ETB</span>
+    </div>
+    <div class="card">
+      <img src="cake.webp" alt="Dish 4" width="50" height="450">
+      <h2>Chocolate Lava Cake</h2>
+      <p>Warm chocolate cake with molten center.</p>
+      <span class="price">7725ETB</span>
+    </div>
+  </section>
+  <footer class="footer">
+    <p>© 2026 Habesha Eatery | Authentic Taste of Ethiopia</p>
+  </footer>
+</body>
+</html>
