@@ -1,0 +1,79 @@
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+.card h3 {
+  margin: 10px;
+}
+.card p {
+  margin: 0 10px 10px;
+  flex-grow: 1;
+}
+.price {
+  margin: 10px;
+  font-weight: bold;
+  color: #333;
+  align-self: flex-end;
+}
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: crimson;
+  color: white;
+  border-radius: 50%;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+@media (max-width: 700px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
