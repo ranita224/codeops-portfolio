@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Habesha Eatery | Reservation</title>
+<meta name="description" content="Reserve a table and explore our authentic Ethiopian menu.">
+</head>
+<body>
+<header>
+    <h1>Habesha Eatery</h1>
+    <nav>
+    <a href="index.html">Home</a><br> |
+    <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section aria-labelledby="reserve-heading">
+    <h2 id="reserve-heading">Reserve a Table</h2>
+    <form action="/reserve" method="post">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" required><br><br>
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" pattern="09[0-9]{8}" title="Format: 0911223344" required><br><br>
+
+        <label for="guests">Guests</label>
+        <input id="guests" name="guests" type="number" min="1" max="20" required><br><br>
+
+        <label for="date">Date</label>
+        <input id="date" name="date" type="date" required><br><br>
+
+        <button type="submit">Reserve</button>
+    </form>
+    </section>
+
+    <section aria-labelledby="menu-heading">
+    <h2 id="menu-heading">Menu (ETB)</h2>
+    <table>
+        <caption>Habesha Eatery Menu</caption>
+        <thead>
+        <tr><th scope="col">Dish</th><th scope="col">Price</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Doro Wat</th><td>320</td></tr>
+        <tr><th scope="row">Tibs</th><td>280</td></tr>
+        <tr><th scope="row">Beyaynetu</th><td>250</td></tr>
+        </tbody>
+    </table>
+    </section>
+
+    <section aria-labelledby="media-heading">
+    <h2 id="media-heading">Our Restaurant</h2>
+    <figure>
+        <img src="ethiopian- traditional-food.jpg" alt="Traditional Ethiopian meal served with injera" width="600">
+        <figcaption>Enjoy authentic Ethiopian flavors in Bole.</figcaption>
+    </figure>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Habesha Eatery · Bole, Addis Ababa</p>
+</footer>
+</body>
+</html>

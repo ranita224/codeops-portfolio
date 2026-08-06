@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Habesha Eatery | Bole, Addis</title>
+<meta name="description" content="Authentic Ethiopian dining in Bole. Reserve a table and explore our menu.">
+</head>
+<body>
+<header>
+    <h1>Habesha Eatery</h1>
+    <nav>
+    <a href="/reserve">Reserve</a><br><br>
+    <a href="/menu">Menu</a><br><br>
+    <a href="/location">Find Us</a><br><br>
+    </nav>
+</header>
+
+<main>
+    <section id="hero">
+    <figure>
+        <img src="ethiopian- traditional-food.jpg" alt="Traditional Ethiopian meal served with injera" width="800" height="500">
+        <figcaption>Experience authentic Ethiopian flavors in Bole.</figcaption>
+    </figure>
+    </section>
+
+    <section id="reserve">
+    <h2>Reserve a Table</h2>
+    <form action="/reserve" method="post">
+        <fieldset>
+        <legend>Your Details</legend>
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" required><br>
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" required><br>
+        </fieldset>
+
+        <fieldset>
+        <legend>Booking</legend><br>
+        <label for="guests">Guests</label>
+        <input id="guests" name="guests" type="number" min="1" max="20" required><br>
+
+        <label for="date">Date</label>
+        <input id="date" name="date" type="date" required><br>
+
+        <label for="branch">Branch</label><br>
+        <select id="branch" name="branch">
+            <option>Bole</option>
+            <option>Kazanchis</option>
+        </select>
+        </fieldset>
+
+        <button type="submit">Reserve</button><br>
+    </form>
+    </section>
+
+    <section id="menu"><br><br>
+    <h2>Our Menu</h2>
+    <table>
+        <caption>Habesha Eatery Menu</caption><br><br>
+        <thead>
+        <tr>
+            <th scope="col">Dish</th>
+            <th scope="col">Price (ETB)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Doro Wat</th><td>320</td></tr>
+        <tr><th scope="row">Tibs</th><td>280</td></tr>
+        <tr><th scope="row">Beyaynetu</th><td>250</td></tr>
+        <tr><th scope="row">Special Platter</th><td>400</td></tr>
+        </tbody>
+    </table>
+    </section>
+
+    <section id="location"><br>
+    <h2>Find Us</h2><br><br>
+    <iframe src="https://maps.google.com/maps?q=Bole%20Addis%20Ababa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            title="Map to Habesha Eatery, Bole"></iframe>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Habesha Eatery · Bole, Addis Ababa · Open daily 10 AM – 10 PM</p>
+</footer>
+</body>
+</html>
