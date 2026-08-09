@@ -1,0 +1,4 @@
+Bill Amount: 1000.00 ETB
+Tip Amount: 100.00 ETB
+Total Amount (including tip): 1100.00 ETB
+Each person pays: 220.00 ETB
