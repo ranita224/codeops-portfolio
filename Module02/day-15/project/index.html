@@ -30,7 +30,7 @@
       position: sticky;
       top: 0;
       background: var(--primary);
-      color: white;
+      color: rgb(210, 20, 20);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -40,7 +40,7 @@
       font-size: 1.5rem;
     }
     nav a {
-      color: white;
+      color: rgb(247, 245, 245);
       text-decoration: none;
       margin-left: 1rem;
       font-weight: bold;
@@ -49,8 +49,8 @@
       color: var(--accent);
     }
     .hero {
-      background: url('images/hero.jpg') center/cover no-repeat;
-      color: white;
+      background: url(https://tse2.mm.bing.net/th/id/OIP.RY5xZA3u0SDYgrNrwP__oQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3) center/cover no-repeat;
+      color: rgb(27, 18, 20);
       text-align: center;
       padding: 5rem 1rem;
     }
@@ -71,7 +71,7 @@
       font-weight: bold;
     }
     .hero a:hover {
-      background: white;
+      background: rgb(18, 16, 16);
     }
     .about {
       padding: 2rem 1rem;
@@ -92,7 +92,7 @@
       margin: auto;
     }
     .card {
-      background: white;
+      background: rgb(248, 247, 247);
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
@@ -169,16 +169,16 @@
   <header>
     <h1>Habesha Eatery</h1>
     <nav>
-      <a href="/about">About</a>
-      <a href="/menu">Menu</a>
-      <a href="/reservation">Reserve</a>
-      <a href="/contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#reservation">Reserve</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
   <section class="hero">
     <h2>Authentic Taste of Ethiopia</h2>
     <p>Experience Addis Ababa’s finest traditional dishes.</p>
-    <a href="/reservation">Book a Table</a>
+    <a href="#reservation">Book a Table</a>
   </section>
 
   <section id="about" class="about">
@@ -188,24 +188,61 @@
 
   <section id="menu" class="menu">
     <div class="card">
-      <img src="doro.png" alt="Doro Wat"width="50" height="450">
+      <img src="https://i.pinimg.com/originals/46/cc/48/46cc48f9f2466294e7babf0e8c3fc745.png"
+    alt="Doro Wat"  width="50"   height="450">
       <h4>Doro Wat</h4>
       <p>Spicy chicken stew served with injera.</p>
-      <span class="price">4135ETB</span>
+      <span class="price">4135ETB</span><br>
     </div>
     <div class="card">
-      <img src="kitfo.webp" alt="Kitfo"width="50" height="450">
+      <img src="https://th.bing.com/th/id/OIP.2sEm5yhrkKk8U2x1cH68SAHaFj?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Kitfo"   width="50"  height="450">
       <h4>Kitfo</h4>
       <p>Minced beef seasoned with mitmita and butter.</p>
-      <span class="price">5150ETB</span>
+      <span class="price">5150ETB</span>  
     </div>
     <div class="card">
-      <img src="shero.webp" alt="Shiro" width="50" height="450">
+      <img src="https://www.africanfoodmap.com/wp-content/uploads/2017/01/shiro.jpg" 
+      alt="Shiro" width="50" height="450">
       <h4>Shiro</h4>
       <p>Chickpea stew simmered with spices.</p>
       <span class="price">975ETB</span>
     </div>
+    <div class="card">
+    <img src="https://th.bing.com/th/id/R.0d75901b8e7bff4dc632f09daa25ab17?rik=PMpoHY5CX1EYTg&pid=ImgRaw&r=0" alt="Tibs" width="50" height="450">
+    <h4>Tibs</h4>
+    <p>Sautéed beef or lamb cubes with onions, peppers, and spices.</p>
+    <span class="price">3200 ETB</span>
+  </div>
   </section>
+
+  <section id="drinks" class="menu">
+  <h3>Beverages</h3>
+  <div class="card">
+    <img src="https://tse1.mm.bing.net/th/id/OIP.HRasvR61UkYKlBjDwy3JEwHaJq?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tej" width="50" height="450">
+    <h4>Tej</h4>
+    <p>Traditional Ethiopian honey wine.</p>
+    <span class="price">250 ETB</span>
+  </div>
+  <div class="card">
+    <img src="https://th.bing.com/th/id/R.684a694f175cec3b04d6f4e624718ddf?rik=P3YuLymCWJOlIA&pid=ImgRaw&r=0" alt="Soft Drink" width="50" height="450">
+    <h4>Soft Drinks</h4>
+    <p>Assorted sodas and sparkling water.</p>
+    <span class="price">80 ETB</span>
+  </div>
+  <h3>Hot Drinks</h3>
+  <div class="card">
+    <img src="https://tse2.mm.bing.net/th/id/OIP.yWvMZ30rI3Xs-2HElMLklAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ethiopian Coffee" width="50" height="450">
+    <h4>Ethiopian Coffee</h4>
+    <p>Freshly brewed coffee from local beans.</p>
+    <span class="price">120 ETB</span>
+  </div>
+  <div class="card">
+    <img src="https://tse2.mm.bing.net/th/id/OIP.AcN8aK8kQ_cbrdAunxPboAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tea" width="50" height="450">
+    <h4>Tea</h4>
+    <p>Black tea served with spices or milk.</p>
+    <span class="price">100 ETB</span>
+  </div>
+</section>
 
   <section id="reservation" class="reservation">
     <h3>Reserve Your Table</h3>
@@ -217,10 +254,23 @@
       <button type="submit">Submit</button>
     </form>
   </section>
-
+  <!-- Map Section -->
+<section id="map" class="map">
+  <h3>Find Us</h3>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123456789!2d38.736!3d8.992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84287c530a7d%3A0xc64490a555fb740c!2sVictoria%20Hotel%20Apartment%20%7C%20Sarbet!5e0!3m2!1sen!2set!4v1691234567890"
+    width="100%" 
+    height="400" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</section>
   <footer id="contact">
     <p>📍 Bole Addis Ababa | 📞 +251 911 234 567 | 🕒 Open 9 AM – 10 PM</p>
     <p>© 2026 Habesha Eatery | All Rights Reserved</p>
   </footer>
+
 </body>
 </html>
