@@ -1,0 +1,15 @@
+[
+  { "id": 1, "city": "Addis Abeba", "temp": 22, "condition": "Sunny", "icon": "sun.webp" },
+  { "id": 2, "city": "Bole", "temp": 21, "condition": "Cloudy", "icon": "cloud.webp" },
+  { "id": 3, "city": "Dire Dawa", "temp": 28, "condition": "Hot", "icon": "hot.webp" },
+  { "id": 4, "city": "Mekelle", "temp": 18, "condition": "Rainy", "icon": "rain.webp" },
+  { "id": 5, "city": "Hawassa", "temp": 25, "condition": "Partly Cloudy", "icon": "cloud.webp" },
+  { "id": 6, "city": "Jimma", "temp": 20, "condition": "Rainy", "icon": "rain.webp" },
+  { "id": 7, "city": "Gondar", "temp": 23, "condition": "Sunny", "icon": "sun.webp" },
+  { "id": 8, "city": "Bahir Dar", "temp": 24, "condition": "Windy", "icon": "wind.webp" },
+  { "id": 9, "city": "Harar", "temp": 26, "condition": "Sunny", "icon": "sun.webp" },
+  { "id": 10, "city": "Adama", "temp": 27, "condition": "Hot", "icon": "hot.webp" },
+  { "id": 11, "city": "Shashemene", "temp": 22, "condition": "Cloudy", "icon": "cloud.webp" },
+  { "id": 12, "city": "Debre Markos", "temp": 19, "condition": "Rainy", "icon": "rain.webp" },
+  { "id": 13, "city": "Arba Minch", "temp": 29, "condition": "Sunny", "icon": "sun.webp" }
+]
