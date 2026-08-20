@@ -107,9 +107,9 @@ function load() {
 
 document.querySelector("#subscribe").addEventListener("submit", e => {
   e.preventDefault();
-  const name = document.querySelector("#name").value.trim();
-  const phone = document.querySelector("#phone").value.trim();
-  const city = document.querySelector("#city").value;
+  const name = document.querySelector("#subscriber-name").value.trim();
+  const phone = document.querySelector("#subscriber-phone").value.trim();
+  const city = document.querySelector("#subscriber-city").value;
   const errorEl = document.querySelector("#form-error");
 
   const msg = validate({ name, phone, city });
