@@ -26,25 +26,25 @@ It allows users to search Ethiopian cities, view current conditions, save favour
 
 ## Project Structure
 day-24/
-├── index.html        # Main HTML file
-├── app.js            # JavaScript logic
-├── styles.css        # Styling
+├── index.html        
+├── app.js           
+├── styles.css        
 ├── data/
-│   └── weather.json  # Weather data
-└── images/           # Weather icons (sun, cloud, rain, etc.)
+│   └── weather.json  
+└── images/   
 
 ---
 
 ## How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ethiopia-weather.git
+   git clone https://github.com/ranita224/ethiopia-weather.git
 2. Navigate into the project folder:
-   cd ethiopia-weather/day-24
+   cd Ethiopia-weather/day-25
 3. Open index.html in your browser (or use a local server like VS Code Live Server).
-Learning Outcomes:-
+Learning Outcomes: -
 
-Practised DOM manipulation and event handling.
+Practiced DOM manipulation and event handling.
 
 Implemented state → render loop manually.
 
@@ -55,7 +55,7 @@ Applied validation with regular expressions.
 Improved code quality with refactor (constants, helper functions, guard clauses).
 
 Polished with accessibility labels, error handling, and fallback images.
-Next Steps:-
+Next Steps: -
 Add real weather API integration.
 
 Extend subscription to send actual SMS alerts.
