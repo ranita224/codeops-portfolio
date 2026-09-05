@@ -1,0 +1,19 @@
+.header {
+  background-color: #013a5c;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header .subtitle {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #cfe3f0;
+  margin-top: 5px;
+}
