@@ -1,0 +1,17 @@
+.weather-box {
+  background-color: #e8f0fe;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.weather-box:hover {
+  transform: scale(1.05);
+  background-color: #d1e7dd;
+}

@@ -1,0 +1,22 @@
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+}
+
+.chip.on {
+  background: #2b6cb0;
+  color: white;
+  border-color: #2b6cb0;
+  font-weight: bold;
+}
