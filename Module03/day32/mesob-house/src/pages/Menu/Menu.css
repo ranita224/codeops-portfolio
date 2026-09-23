@@ -1,0 +1,28 @@
+@reference "tailwindcss";
+.menu-page-wrapper {
+  @apply min-h-screen bg-amber-50/50 py-12 px-4 sm:px-6 lg:px-8;
+}
+
+.menu-title {
+  @apply text-4xl md:text-5xl font-black text-amber-950 tracking-tight mb-3;
+}
+
+.menu-filter-btn {
+  @apply px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border;
+}
+
+.menu-filter-active {
+  @apply bg-amber-900 text-amber-50 border-amber-900 shadow-md scale-105;
+}
+
+.menu-filter-inactive {
+  @apply bg-white text-stone-700 border-amber-200 hover:bg-amber-100/50 hover:border-amber-400;
+}
+
+.menu-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.add-cart-btn {
+  @apply mt-3 w-full bg-amber-800 hover:bg-amber-900 text-white font-semibold py-2.5 px-4 rounded-xl shadow-md transition-all active:scale-95 text-sm;
+}
