@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuthStore } from '../../store/useAuthStore';
+import { useAuth } from '../../auth/useAuth';
 
 export default function Register() {
-  const register = useAuthStore((state) => state.register);
+  const { register } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({ fullName: '', email: '', password: '' });

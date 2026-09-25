@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCartStore } from '../../store/useCartStore';
-import { checkoutSchema, AREAS } from '../../checkout/checkoutSchema';
+import { validate, AREAS } from '../../checkout/validate';
 import { placeOrder } from '../../api/orders';
 import Field from '../../components/Field/Field';
 
 const DELIVERY_FEE = 100;
+const initialForm = { name: '', phone: '', area: 'Bole', notes: '' };
 
 export default function Checkout() {
   const items = useCartStore((state) => state.items);
@@ -17,42 +16,53 @@ export default function Checkout() {
   );
   const navigate = useNavigate();
 
+  const [form, setForm] = useState(initialForm);
+  const [touched, setTouched] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState('');
   const [orderPlaced, setOrderPlaced] = useState(false);
-  const [placedName, setPlacedName] = useState('');
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, touchedFields, isSubmitting, isSubmitted },
-  } = useForm({
-    resolver: zodResolver(checkoutSchema),
-    mode: 'onBlur',
-    defaultValues: { name: '', phone: '', area: 'Bole', notes: '' },
-  });
+  const errors = validate(form);
+  const hasErrors = Object.keys(errors).length > 0;
 
-  const grandTotal = totalAmount + DELIVERY_FEE;
-  const errorCount = Object.keys(errors).length;
-
-  function showError(field) {
-    return (touchedFields[field] || isSubmitted) && !!errors[field];
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
   }
 
-  async function onSubmit(data) {
+  function handleBlur(e) {
+    const { name } = e.target;
+    setTouched((t) => ({ ...t, [name]: true }));
+  }
+
+  function fieldShowsError(field) {
+    return (touched[field] || submitted) && !!errors[field];
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (submitting) return;
+
+    setSubmitted(true);
     setServerError('');
+
+    if (hasErrors) {
+      const firstError = Object.keys(errors)[0];
+      document.getElementById(firstError)?.focus();
+      return;
+    }
+
+    setSubmitting(true);
     try {
-      await placeOrder({ ...data, items, total: grandTotal });
+      await placeOrder({ ...form, items, total: totalAmount + DELIVERY_FEE });
       clearCart();
-      setPlacedName(data.name);
       setOrderPlaced(true);
     } catch (err) {
       setServerError(err.message || 'Something went wrong placing your order. Please try again.');
+    } finally {
+      setSubmitting(false);
     }
-  }
-
-  function onInvalid(formErrors) {
-    const firstField = Object.keys(formErrors)[0];
-    document.getElementById(firstField)?.focus();
   }
 
   if (orderPlaced) {
@@ -64,7 +74,7 @@ export default function Checkout() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Order placed!</h1>
           <p className="text-gray-600 mb-8">
-            Thank you, {placedName}. Your order from Mesob House is on its way.
+            Thank you, {form.name}. Your order from Mesob House is on its way.
           </p>
           <button
             onClick={() => navigate('/')}
@@ -91,6 +101,9 @@ export default function Checkout() {
       </div>
     );
   }
+
+  const errorCount = Object.keys(errors).length;
+  const grandTotal = totalAmount + DELIVERY_FEE;
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-12">
@@ -120,16 +133,16 @@ export default function Checkout() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit, onInvalid)} noValidate className="bg-white p-8 rounded-xl shadow-md border border-amber-100">
-        {isSubmitted && errorCount > 0 && (
+      <form onSubmit={handleSubmit} noValidate className="bg-white p-8 rounded-xl shadow-md border border-amber-100">
+        {submitted && errorCount > 0 && (
           <div role="alert" className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
             <p className="text-sm font-semibold text-red-800 mb-2">
               Please fix {errorCount} {errorCount === 1 ? 'field' : 'fields'}:
             </p>
             <ul className="text-sm text-red-700 list-disc list-inside space-y-1">
-              {Object.entries(errors).map(([field, err]) => (
+              {Object.entries(errors).map(([field, message]) => (
                 <li key={field}>
-                  <a href={`#${field}`} className="underline">{err.message}</a>
+                  <a href={`#${field}`} className="underline">{message}</a>
                 </li>
               ))}
             </ul>
@@ -145,30 +158,42 @@ export default function Checkout() {
         <Field
           id="name"
           label="Full Name"
-          error={errors.name?.message}
-          showError={showError('name')}
+          error={errors.name}
+          showError={fieldShowsError('name')}
+          name="name"
           type="text"
+          required
+          value={form.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
           placeholder="Abebe Kebede"
-          {...register('name')}
         />
 
         <Field
           id="phone"
           label="Phone Number (TeleBirr)"
-          error={errors.phone?.message}
-          showError={showError('phone')}
+          error={errors.phone}
+          showError={fieldShowsError('phone')}
+          name="phone"
           type="tel"
+          required
+          value={form.phone}
+          onChange={handleChange}
+          onBlur={handleBlur}
           placeholder="0911234567 or +251911234567"
-          {...register('phone')}
         />
 
         <Field
           id="area"
           label="Delivery Area"
-          error={errors.area?.message}
-          showError={showError('area')}
+          error={errors.area}
+          showError={fieldShowsError('area')}
+          name="area"
           as="select"
-          {...register('area')}
+          required
+          value={form.area}
+          onChange={handleChange}
+          onBlur={handleBlur}
         >
           {AREAS.map((a) => (
             <option key={a} value={a}>{a}</option>
@@ -178,20 +203,23 @@ export default function Checkout() {
         <Field
           id="notes"
           label="Notes (optional)"
-          error={errors.notes?.message}
-          showError={showError('notes')}
+          error={errors.notes}
+          showError={fieldShowsError('notes')}
+          name="notes"
           as="textarea"
           rows="3"
+          value={form.notes}
+          onChange={handleChange}
+          onBlur={handleBlur}
           placeholder="Ring the bell twice, leave at the gate, etc."
-          {...register('notes')}
         />
 
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={submitting || (submitted && hasErrors)}
           className="w-full bg-amber-700 hover:bg-amber-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-colors shadow-md mt-2"
         >
-          {isSubmitting ? 'Sending your order…' : `Order — ${grandTotal} ETB`}
+          {submitting ? 'Sending your order…' : `Order — ${grandTotal} ETB`}
         </button>
       </form>
     </div>

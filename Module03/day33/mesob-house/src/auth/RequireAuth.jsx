@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import { Navigate, useLocation, Outlet } from 'react-router-dom';
-import { useAuthStore } from '../store/useAuthStore';
+import { AuthContext } from './AuthContext';
 
 export default function RequireAuth() {
-  const user = useAuthStore((state) => state.user);
+  const { user, loading } = useContext(AuthContext);
   const location = useLocation();
+
+  if (loading) return null;
 
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;

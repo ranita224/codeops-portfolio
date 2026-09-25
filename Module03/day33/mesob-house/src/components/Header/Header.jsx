@@ -1,13 +1,14 @@
+import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useCartStore } from '../../store/useCartStore';
-import { useAuth } from '../../auth/useAuth';
+import { AuthContext } from '../../auth/AuthContext';
 import './Header.css';
 
 export default function Header() {
   const totalItems = useCartStore((state) =>
     state.items.reduce((sum, item) => sum + item.quantity, 0)
   );
-  const { user, logout } = useAuth();
+  const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const navLinkClass = ({ isActive }) =>
