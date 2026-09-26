@@ -1,25 +1,58 @@
 # Component Tree — Mesob House
 
-App
-└── BrowserRouter
-    └── Layout                          (owns: nothing — pure shell)
-        ├── Header                      (reads: cart item count, auth user — via store selectors)
-        ├── <Outlet> renders one of:
-        │   ├── Home                    (owns: nothing local; reads specials via useFetch)
-        │   │   └── DishCard            (presentational — props only)
-        │   ├── Menu                    (owns: search query, selected category, toast message)
-        │   │   └── DishCard            (presentational — props only)
-        │   ├── DishDetail               (owns: toast message; reads dish from fetched menu list)
-        │   ├── Cart                    (owns: nothing local; reads/writes cart store)
-        │   ├── Checkout                (owns: orderPlaced, serverError; form state owned by React Hook Form)
-        │   │   └── Field               (presentational — label/input/error wiring)
-        │   ├── Login                   (owns: form fields, error message)
-        │   ├── Register                (owns: form fields, error message)
-        │   └── NotFound                (owns: nothing — static)
-        └── Footer                      (owns: nothing — static)
+```mermaid
+graph TD
+    App[App] --> Layout[Layout]
+    Layout --> Header[Header]
+    Layout --> Outlet[Outlet - active page]
+    Layout --> Footer[Footer]
 
-RequireAuth wraps the /checkout route — reads auth state to allow/redirect.
+    Outlet --> Home[Home]
+    Outlet --> Menu[Menu]
+    Outlet --> DishDetail[DishDetail]
+    Outlet --> Cart[Cart]
+    Outlet --> RequireAuth[RequireAuth guard]
+    Outlet --> Login[Login]
+    Outlet --> Register[Register]
+    Outlet --> NotFound[NotFound]
 
-Global stores (outside the tree, not owned by any component):
-- useCartStore   (Zustand + persist) — items, addItem, removeItem, updateQuantity, clearCart
-- useAuthStore   (Zustand + persist) — user, users, register, login, logout
+    RequireAuth --> Checkout[Checkout]
+
+    Home --> DishCard1[DishCard]
+    Menu --> DishCard2[DishCard]
+    Checkout --> Field[Field]
+
+    CartStore[(useCartStore - Zustand)]
+    AuthStore[(useAuthStore - Zustand)]
+
+    Header -.reads.-> CartStore
+    Header -.reads.-> AuthStore
+    Menu -.reads/writes.-> CartStore
+    DishDetail -.reads/writes.-> CartStore
+    Cart -.reads/writes.-> CartStore
+    Checkout -.reads/writes.-> CartStore
+    RequireAuth -.reads.-> AuthStore
+    Login -.reads/writes.-> AuthStore
+    Register -.reads/writes.-> AuthStore
+```
+
+## What owns what
+
+| Component | Owns |
+|---|---|
+| `Layout` | Nothing — pure shell (Header + page + Footer) |
+| `Header` | Nothing local — reads cart count & auth user from stores |
+| `Home` | Nothing local — fetches specials via `useFetch` |
+| `Menu` | Search text, selected category, toast message |
+| `DishDetail` | Toast message |
+| `Cart` | Nothing local — all data from `useCartStore` |
+| `Checkout` | `orderPlaced`, `serverError` — form fields owned by React Hook Form |
+| `Login` / `Register` | Form fields, error message |
+| `DishCard` | Nothing — pure presentational, all props |
+| `Field` | Nothing — pure presentational, all props |
+
+## Global stores (outside the component tree)
+
+- **`useCartStore`** (Zustand + persist) — `items`, `addItem`, `removeItem`, `updateQuantity`, `clearCart`
+- **`useAuthStore`** (Zustand + persist) — `user`, `users`, `register`, `login`, `logout`
+- 
